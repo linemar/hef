@@ -1,0 +1,75 @@
+{
+    "ISA": "AVX512",
+    "length" : 512,
+    "variable": {
+        "vbit" : "__mmask8",
+        "vbit64" : "__mmask8",
+        "vbit32" : "__mmask16",
+        "vbit16" : "__mmask32",
+        "vbit8" : "__mmask64",
+        "vbyte": "__m512i",
+        "vubyte": "__m512i",
+        "vint16": "__m512i",
+        "vuint16": "__m512i",
+        "vuint32": "__m512i",
+        "vint32": "__m512i",
+        "vuint64": "__m512i",
+        "vint64": "__m512i",
+        "vfloat32": "__m512",
+        "vfloat64": "__m512d"
+    },
+    "instruction": {
+
+        "hi_load_i32": "$2 = _mm512_loadu_epi32($1)",
+        "hi_load_mask_i32": "$1 = _mm512_maskz_loadu_epi32 ($2, $3)",
+        "hi_gather_i32": "$3 = _mm512_i32gather_epi32($2, $1, 4)",
+        "hi_store_i32": "_mm512_store_epi32($2, $1)",
+        "hi_scatter_i32": "_mm512_i32scatter_epi32($3, $2, $1, 4)",
+        "hi_compress_i32": "_mm512_mask_compressstoreu_epi32($3 + size, $2, $1);\nsize += _mm_popcnt_u32($2)",
+        "hi_add_i32": "$3 = _mm512_add_epi32($2, $1)",
+        "hi_sub_i32": "$3 = _mm512_sub_epi32($2, $1)",
+        "hi_mullo_i32": "$3 = _mm512_mullo_epi32($2, $1)",
+        "hi_mul_i32": "$3 = _mm512_mul_epi32($2, $1)",
+        "hi_cmpgt_i32" : "$3 = _mm512_cmpgt_epi32_mask($1, $2)",
+        "hi_cmpge_i32" : "$3 = _mm512_cmpge_epi32_mask($1, $2)",
+        "hi_cmpeq_i32" : "$3 = _mm512_cmpeq_epi32_mask ($1, $2)",
+        "hi_cmple_i32" : "$3 = _mm512_cmple_epi32_mask($1, $2)",
+        "hi_cmplt_i32" : "$3 = _mm512_cmplt_epi32_mask($1, $2)",
+        "hi_srli_i32" : "$3 = _mm512_srli_epi64($1, $2)",
+
+
+        "hi_set1_i64": "$2 = _mm512_set1_epi64($1)",
+        
+        "hi_load_i64": "$2 = _mm512_loadu_epi64($1)",
+        "hi_stream_load_i64": "$2 = _mm512_stream_load_si512 ($1)",
+        "hi_load_mask_i64": "$3 = _mm512_maskz_loadu_epi64 ($1, $2)",
+
+        "hi_gather_i64": "$4 = _mm512_i64gather_epi64($1, $2, $3)",
+        "hi_mask_gather_i64": "$4 = _mm512_mask_i64gather_epi64($1, $2, $3)",
+
+        "hi_store_i64": "_mm512_storeu_epi64($1, $2)",
+        "hi_stream_store_i64": "_mm512_stream_store_si512($1, $2)",
+        "hi_mask_store_i64": "_mm512_mask_storeu_epi64($1, $2, $3)",
+
+        "hi_scatter_i64": "_mm512_i64scatter_epi64($1, $2, $3, 8)",
+
+        "hi_compress_i64": "_mm512_mask_compressstoreu_epi64($1 + $4, $2, $3);\n$4 += _mm_popcnt_u64($2)",
+
+        "hi_add_i64": "$3 = _mm512_add_epi64($1, $2)",
+        "hi_sub_i64": "$3 = _mm512_sub_epi64($1, $2)",
+        "hi_mullo_i64": "$3 = _mm512_mullo_epi64($1, $2)",
+        "hi_mul_i64": "$3 = _mm512_mul_epi64($1, $2)",
+        "hi_cmp_gt_i64" : "$3 = _mm512_cmpgt_epi64_mask($1, $2)",
+        "hi_cmp_ge_i64" : "$3 = _mm512_cmpge_epi64_mask($1, $2)",
+        "hi_cmp_eq_i64" : "$3 = _mm512_cmpeq_epi64_mask ($1, $2)",
+        "hi_cmp_neq_i64" : "$3 = _mm512_cmpneq_epi64_mask ($1, $2)",
+        "hi_cmp_le_i64" : "$3 = _mm512_cmple_epi64_mask($1, $2)",
+        "hi_cmp_lt_i64" : "$3 = _mm512_cmplt_epi64_mask($1, $2)",
+        "hi_and_i64" : "$3 = _mm512_and_epi64($1, $2)",
+        "hi_xor_i64" : "$3 = _mm512_xor_epi64($1, $2)",
+        "hi_or_i64" : "$3 = _mm512_or_epi64($1, $2)",
+        "hi_srli_i64" : "$3 = _mm512_srli_epi64($1, $2)",
+
+        "hi_reduce_add_i64":  "$2 = _mm512_reduce_add_epi64($1)"
+    }
+}
