@@ -4,7 +4,7 @@ The project is for the ICDE 2023 papar 106.
 
 The project contains the follow part:
 1. instructions table.
-It stores the map of the hybrid intermediate description to target instructions, include SSE, AVX2, and AVX-512.
+It stores the map of the hybrid intermediate description to target instructions.
 
 2.benchmarks.
 star schema benchmark, include scalar, AVX-512, and the hybird impplemtation.
