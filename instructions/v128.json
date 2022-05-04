@@ -1,0 +1,33 @@
+{
+    "lengh": 128,
+    "variable": {
+        "VByte": "__m128i",
+        "VInt16": "__m128i",
+        "VUInt32": "__m128i",
+        "VInt32": "__m128i",
+        "VUInt64": "__m128i",
+        "VInt64": "__m128i",
+        "VFloat32": "__m128",
+        "VFloat64": "__m128d"
+    },
+    "instruction": {
+        "VByte": {},
+        "VInt16": {},
+        "VUInt32": {
+            "hi_load": "_mm512_load_epi32",
+            "hi_gather": "_mm512_i32gather_epi32",
+            "hi_store": "_mm512_store_epi32",
+            "hi_scatter": "_mm512_i32scatter_epi32",
+            "hi_compress": "_mm512_mask_compressstoreu_epi32",
+            "hi_add": "_mm512_add_epi32",
+            "hi_sub": "_mm512_sub_epi32",
+            "hi_mullo": "_mm512_mullo_epi32",
+            "hi_mul": "_mm512_mul_epi32"
+        },
+        "VInt32": {},
+        "VUInt64": {},
+        "VInt64": {},
+        "VFloat32": {},
+        "VFloat64": {}
+    }
+}

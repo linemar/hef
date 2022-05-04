@@ -1,0 +1,65 @@
+{
+    "ISA": "Scalar",
+    "variable": {
+        "vbit": "bool",
+        "vbit8" : "bool",
+        "vbit16" : "bool",
+        "vbit32" : "bool",
+        "vbit64" : "bool",
+        "vbyte": "char",
+        "vubyte": "unsigned char",
+        "vint16": "int32_t",
+        "vuint16": "uint16_t",
+        "vuint32": "uint32_t",
+        "vint32": "int32_t",
+        "vuint64": "uint64_t",
+        "vint64": "int64_t",
+        "vfloat32": "float",
+        "vfloat64": "double",
+        "size": "uint64_t"
+    },                      
+    "instruction": {
+
+        "hi_load_i32": "$2 = *($1)",
+        "hi_load_mask_i32": "if(mask) {$1 = $2[$3]}",
+        "hi_gather_i32": "$3 = *($2 + $1)",
+        "hi_store_i32": "*($1) = $2",
+        "hi_scatter_i32": "*($3 + $2)  = $1",
+        "hi_compress_i32": "if($2) {$3[size] = $1; \nsize++;}",
+        "hi_add_i32": "$3 = $2 + $1",
+        "hi_sub_i32": "$3 =$2 - $1",
+        "hi_mullo_i32": "$3 = $2 * $1",
+        "hi_mul_i32": "$3 = $2 * $1",
+        "hi_srli_i32": "$3 = $1 >> $2",
+
+        "hi_set1_i64": "$2 = $1",
+        
+        "hi_load_i64": "$2 = *($1)",
+        "hi_load_mask_i64": "if(mask) {$1 = $2[$3]}",
+
+        "hi_gather_i64": "$4 = *($2 + $1)",
+
+        "hi_store_i64": "*($1) = $2",
+        "hi_mask_store_i64": "if($2){*($3) = $1}",
+        "hi_scatter_i64": "*($3 + $2)  = $1",
+
+        "hi_compress_i64": "if($2)\n{$1[$4] = $3;\n$4++;}",
+
+        "hi_add_i64": "$3 = $2 + $1",
+        "hi_sub_i64": "$3 =$2 - $1",
+        "hi_mullo_i64": "$3 = $2 * $1",
+        "hi_mul_i64": "$3 = $2 * $1",
+        "hi_cmp_gt_i64" : "$3 = $1 > $2 ? 1 : 0",
+        "hi_cmp_ge_i64" : "$3 = $1 >= $2 ? 1 : 0",
+        "hi_cmp_eq_i64" : "$3 = $1 == $2 ? 1 : 0",
+        "hi_cmp_neq_i64" : "$3 = $1 != $2 ? 1 : 0",
+        "hi_cmp_le_i64" : "$3 = $1 < $2 ? 1 : 0",
+        "hi_cmp_lt_i64" : "$3 = $1 <= $2 ? 1 : 0",
+        "hi_and_i64" : "$3 = $1 & $2",
+        "hi_xor_i64" : "$3 = $1 ^ $2",
+        "hi_or_i64" : "$3 = $1 | $2",
+        "hi_srli_i64": "$3 = $1 >> $2",
+        
+        "hi_reduce_add_i64":  "$2 += $1"
+    }
+}
