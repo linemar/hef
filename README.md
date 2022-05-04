@@ -3,6 +3,7 @@
 The project is for the ICDE 2023 papar 106.
 
 The project contains the follow part:
+
 1. instructions table.
 It stores the map of the hybrid intermediate description to target instructions.
 
@@ -20,3 +21,6 @@ self definated tests, include the computation of the hash value and hash join.
 
 6.hid examples.
 the implemtation example with  the hybrid intermediate description to target instruction.
+
+NOTE:
+The above dictionaries and files do not contains the core code about HEF, we will upload other files after the paper accepted.
